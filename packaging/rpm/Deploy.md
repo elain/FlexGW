@@ -32,13 +32,17 @@ OS: Centos 7.x
 
 以root 身份执行：
 
-1. yum install strongswan openvpn zip curl wget
+1. yum install -y git strongswan openvpn zip curl wget 
+
+如需要自己编译安装以下依赖包:
+
+1. yum -y rpm-build python-pip zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel \
+openssl-devel xz xz-devel libffi-devel gcc gcc-c++ -y
 
 安装flexgw rpm 包
 ----------------
 
-1. rpm -ivh flexgw-1.1.0-1.el7.centos.x86_64.rpm
-
+1. rpm -ivh rpms/flexgw-2.0.0-1.el7.centos.x86_64.rpm
 
 
 初始化配置
