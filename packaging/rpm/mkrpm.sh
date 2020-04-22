@@ -24,7 +24,8 @@ mkdir -p /tmp/rpmbuild/PYTHON/sources
 [ -d /tmp/rpmbuild/SOURCES/flexgw ] && rm -rf /tmp/rpmbuild/SOURCES/flexgw
 
 #clone repositories
-git clone https://github.com/elain/FlexGW.git /tmp/rpmbuild/SOURCES/flexgw
+#git clone https://github.com/elain/FlexGW.git /tmp/rpmbuild/SOURCES/flexgw
+/bin/cp -Rf ../../../FlexGW /tmp/rpmbuild/SOURCES/flexgw
 
 #archive source from git repositories
 cd /tmp/rpmbuild/SOURCES/flexgw
