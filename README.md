@@ -14,16 +14,33 @@ Flex GateWay
 
 更新内容
 -------
-更改适配操作系统7.x，测试编译环境为centos 7.3
+- 更改适配操作系统7.x，测试编译环境为centos 7.3
+- 添加了Openvpn的用户使用日志审计
 
-依赖软件包可以直接使用系统epel源安装
+快速安装：
+1. 设置环境
 
-yum install -y epel-release
+```
+sysctl -a | egrep "ipv4.*(accept|send)_redirects" | awk -F "=" '{print $1"= 0"}'
+```
+请编辑sysctl.conf 文件，将上面配置的值均设为0。配置文件里没有的，请添加上。
 
-yum install strongswan openvpn
+```
+echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+```
+请编辑sysctl.conf 文件，将该配置的值设置为1。
 
-附上打包好的rpm包[下载地址](https://github.com/elain/FlexGW/blob/master/rpms/flexgw-2.0.0-1.el7.centos.x86_64.rpm)
+执行命令sysctl -p
 
+2. 安装依赖并下载git中的rpm包安装
+
+```
+yum install strongswan openvpn zip curl wget -y
+wget https://github.com/elain/FlexGW/blob/master/rpms/flexgw-2.0.0-1.el7.centos.x86_64.rpm
+rpm -ivh flexgw-2.0.0-1.el7.centos.x86_64.rpm
+```
+
+---------------------
 自己编译
 ```
 # yum install git

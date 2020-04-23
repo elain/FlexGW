@@ -98,5 +98,5 @@ openssl-devel xz xz-devel libffi-devel gcc gcc-c++ -y
 **测试完毕，请停止服务，并重装flexgw rpm 包：**
 
 1. /etc/init.d/flexgw stop
-2. rpm -e flexgw && rpm -rf /usr/local/flexgw/
+2. rpm -e flexgw && rm -rf /usr/local/flexgw
 3. rpm -ivh flexgw-1.1.0-1.el7.centos.x86_64.rpm
